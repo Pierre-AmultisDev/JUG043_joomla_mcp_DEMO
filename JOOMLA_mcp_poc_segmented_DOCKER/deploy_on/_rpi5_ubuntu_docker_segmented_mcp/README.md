@@ -22,17 +22,10 @@ Scripts draai je dus rechtstreeks in die map, bijvoorbeeld `./start_all_containe
    (`ubuntu@RPi5-UB2404-001-WIRE`) en een vast Windows-pad (`/mnt/c/@my_projects/_rpi5_joomla_mcp/...`) – pas dat aan als jouw situatie anders is.
    Er moet SSH-toegang tot de Pi zijn en `rsync` in WSL.
 
-> **Let op (segmented):** `rebuild_and_start_all_containers.sh` maakt het netwerk `mcp-segmented-net` aan, maar `docker-compose.yml`
-> verwacht `external-mcp-segmented-net`. Maak dat netwerk daarom vóór de eerste start zelf aan:
-> ```bash
-> docker network create external-mcp-segmented-net
-> ```
-
 ## Stap 1 – website-stack kopiëren en starten
 
-Op Windows, in een WSL-terminal:
+Op Windows terminal openen in de map waar copy_files_to_RPI5.sh in staat en dan commando `bash` geven. Dan wordt een WSL-terminal op gestart. In die WSL-terminal:
 ```bash
-cd website
 ./copy_files_to_RPI5.sh
 ```
 Op de Pi:
@@ -46,8 +39,9 @@ Het script vraagt om `sudo` (het wist `./joomla-www`) en maakt het netwerk aan. 
 
 ## Stap 2 – site restoren
 
-`http://rpi5-ub2404-001-wire:9180/kickstart.php` → instellingen volgens de root-README (§3).
-Front-end `http://rpi5-ub2404-001-wire:9180/`, back-end `…/administrator/`.
+- `http://rpi5-ub2404-001-wire:9180/kickstart.php` → instellingen volgens de root-README (§3).
+- Front-end `http://rpi5-ub2404-001-wire:9180/`,
+- Back-end `…/administrator/`.
 
 ## Stap 3 – opencode-stack kopiëren en starten
 
@@ -62,8 +56,9 @@ cd ~/docker/JOOMLA_mcp_poc_segm_mcp_DOCKER
 chmod +x *.sh
 ./rebuild_and_start_all_containers.sh
 ```
-OpenCode: `http://rpi5-ub2404-001-wire:4196/`
-MCP-server controleren: `docker logs joomla-mcp-server-segmented`; extern bereikbaar op `http://rpi5-ub2404-001-wire:9100/mcp`.
+- OpenCode: `http://rpi5-ub2404-001-wire:4196/`
+- MCP-server controleren: `docker logs joomla-mcp-server-segmented`;
+- MCP-server is extern bereikbaar op `http://rpi5-ub2404-001-wire:9100/mcp`.
 
 ## Dagelijks gebruik
 
