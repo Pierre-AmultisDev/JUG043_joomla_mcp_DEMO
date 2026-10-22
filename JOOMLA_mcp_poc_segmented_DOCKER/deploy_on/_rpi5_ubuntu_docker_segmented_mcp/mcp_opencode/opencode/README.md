@@ -8,7 +8,7 @@ eigen Dockerfile.
 ## Bestanden
 
 - `opencode.json` — configureert de remote MCP-verbinding
-  (`http://mcp-server:9100/mcp`, het **interne** Docker-netwerkadres, niet
+  (`http://joomla-mcp-server-segmented:8000/mcp`, het **interne** Docker-netwerkadres, niet
   het externe `:9100`) en het standaardmodel (OpenCode Zen).
 - `workspace/` — lege werkmap voor OpenCode's file tree. Niet relevant voor
   deze demo (we gebruiken alleen de chat + MCP-tools), maar OpenCode
@@ -16,7 +16,7 @@ eigen Dockerfile.
 
 ## Model: OpenCode Zen
 
-Standaard staat `opencode/deepseek-v4-flash-free` ingesteld (provider
+Standaard staat `opencode/deepseek-v4.1-flash-free` ingesteld (provider
 `opencode` = OpenCode Zen). Zen heeft een aantal gratis modellen; die
 wisselen af en toe. Controleer wat nu beschikbaar is:
 
@@ -38,7 +38,7 @@ dat verschilt per model.
 
 ## Gebruiken
 
-Open in de browser: `http://<pi-hostnaam>:4096`
+Open in de browser: `http://<pi-hostnaam>:4196`
 
 Je krijgt een chatinterface. Vraag bijvoorbeeld: *"Welke artikelen gaan over
 bijeenkomst?"* — als het goed is roept OpenCode dan zelf de

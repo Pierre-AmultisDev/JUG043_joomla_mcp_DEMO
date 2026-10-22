@@ -4,7 +4,7 @@
   "mcp": {
     "joomla": {
       "type": "remote",
-      "url": "http://mcp-server-segmented:8000/mcp",
+      "url": "http://joomla-mcp-server-segmented:8000/mcp",
       "enabled": true
     }
   }
