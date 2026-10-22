@@ -1,0 +1,32 @@
+# =============================================================================
+#
+# @package    <<PROJECT>>
+#             for <<CUSTOMER>> on local venv
+# 
+# @version    v0.0.1  2025-09-24
+# @author     pierre@amultis.dev
+# @copyright  (C) 2022-2025 Pierre Veelen
+#
+# @python     
+#
+# =============================================================================
+
+# MACHINE LEARNING
+# =======================================
+
+# https://scikit-learn.org/stable/index.html
+#scikit-learn
+
+# https://lightgbm.readthedocs.io/en/stable/index.html
+#lightgbm
+
+# https://pvlib-python.readthedocs.io/en/stable/
+#pvlib
+
+# https://shap.readthedocs.io/en/latest/
+#shap
+
+# JOBLIB
+# https://joblib.readthedocs.io/en/stable/index.html
+# =======================================
+#joblib

@@ -1,0 +1,17 @@
+# =============================================================================
+#
+# @package    <<PROJECT>>
+#             for <<CUSTOMER>> on local venv
+# 
+# @version    v0.0.1  2026-05-27
+# @author     pierre@amultis.dev
+# @copyright  (C) 2022-2025 Pierre Veelen
+#
+# @python     
+#
+# =============================================================================
+
+# MICROSOFT AUTHENTICATION LIBRARY (MSAL)
+# =======================================
+# https://pypi.org/project/msal/
+msal

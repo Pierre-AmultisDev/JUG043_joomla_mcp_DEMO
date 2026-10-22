@@ -1,0 +1,16 @@
+# =============================================================================
+#
+# @package    ipheion 
+# @container  
+# @name       .gitattibutes
+# @purpose    Set behavior for line endings
+# @version    v0.0.1  2022-01-09
+# @author     pierre@ipheion.eu
+# @copyright  (C) 2020-2021 Pierre Veelen
+#
+# =============================================================================
+
+# Set default behavior to automatically normalize line endings.
+* text=auto encoding=UTF-8
+*.sh  text eol=lf
+*.cmd text eol=crlf

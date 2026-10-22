@@ -1,0 +1,12 @@
+# LET OP: momenteel NIET actief. De build-context voor mcp-server staat in
+# docker-compose.yml op "." (de map hierboven, deploy_on/_rpi5_docker/), en
+# Docker leest .dockerignore uitsluitend uit de root van de build-context --
+# dus uit ../.dockerignore, niet uit dit bestand. Dit bestand staat hier
+# voor het geval de build-context ooit verandert naar "./mcp-server", en
+# ter documentatie van wat sowieso nooit in een image-laag hoort.
+
+__pycache__/
+*.pyc
+.venv/
+.env
+*.log

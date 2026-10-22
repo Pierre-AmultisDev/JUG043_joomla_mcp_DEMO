@@ -1,0 +1,53 @@
+# Joomla MCP POC — 3 containers: database, webserver (Joomla-kopie) en MCP-server.
+#
+# Start deze stack altijd met --env-file, óók als je niet een van de
+# compose_scripts/*.sh gebruikt (die geven dit al correct door):
+#
+#   docker compose --env-file ./env/.env up -d --build
+#
+
+services:
+# =================
+  opencode-onepoint:
+# =================
+    image: ghcr.io/anomalyco/opencode:latest
+    container_name: opencode-ui-onepoint
+    restart: unless-stopped
+    environment:
+      # OpenCode Zen (standaard, zie opencode/opencode.json). Zonder key
+      # zijn alleen de gratis Zen-modellen beschikbaar.
+      - OPENCODE_API_KEY=${OPENCODE_API_KEY:-}
+      # Optioneel alternatief: Groq (gratis tier)
+      - GROQ_API_KEY=${GROQ_API_KEY:-}
+      # Zet ANTHROPIC_API_KEY in .env en pas opencode/opencode.json aan
+      # om in plaats van het gratis model Claude te laten zien.
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
+      # Laat OpenCode zijn data in de gemounte map (/data) bewaren.
+      - XDG_DATA_HOME=/data/share
+      - XDG_STATE_HOME=/data/state
+      # Laad de MCP-config altijd, ongeacht welke projectmap je in de UI kiest.
+      - OPENCODE_CONFIG=/workspace/opencode.json
+    env_file:
+      - path: ../env/.env
+
+    volumes:
+      - ./opencode/opencode.json:/workspace/opencode.json:ro
+      - ./opencode/workspace:/workspace/project
+      # Persistente OpenCode-data (sessiegeschiedenis, projecten, auth):
+      # overleeft rebuilds en 'docker compose down'.
+      - ./opencode/data:/data
+    working_dir: /workspace
+    command: ["web", "--hostname", "0.0.0.0", "--port", "4096"]
+    ports:
+      - "4396:4096"
+    networks:
+      - mcp-onepoint-net
+
+# gedeeld netwerk tussen 2 omgevingen altijd via external 
+# LET OP; `docker network create external-mcp-onepoint-net` voor docker compose uitvoeren
+networks:
+  mcp-onepoint-net:
+    external: true
+    name: external-mcp-onepoint-net
+
+

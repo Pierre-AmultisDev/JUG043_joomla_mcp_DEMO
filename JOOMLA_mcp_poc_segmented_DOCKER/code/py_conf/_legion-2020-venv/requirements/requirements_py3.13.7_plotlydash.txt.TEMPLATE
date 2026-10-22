@@ -1,0 +1,27 @@
+# =============================================================================
+#
+# @package    <<PROJECT>>
+#             for <<CUSTOMER>> on local venv
+# 
+# @version    v0.0.1  2025-09-24
+# @author     pierre@amultis.dev
+# @copyright  (C) 2022-2025 Pierre Veelen
+#
+# @python     3.13.7
+#
+# =============================================================================
+
+# DATA VISUALISATION WITH PLOTLY
+# =======================================
+#plotly==6.3.0
+#dash==3.2.0
+#dash-bootstrap-components==2.0.4
+#dash-daq==0.6.0
+
+# basic authentication
+##dash-auth==1.4.1
+# is work in progress. Using local dash_auth_personal
+# import these specific for authentication
+#requests==2.32.5
+#ua_parser==1.0.1
+#chart_studio==1.1.0

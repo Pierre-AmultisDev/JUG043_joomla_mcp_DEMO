@@ -1,0 +1,25 @@
+# =============================================================================
+#
+# @package    <<PROJECT>>
+#             for <<CUSTOMER>> on local venv
+# 
+# @version    v0.0.2  2026-05-04
+# @author     pierre@amultis.dev
+# @copyright  (C) 2022-2025 Pierre Veelen
+#
+# @python     
+#
+# =============================================================================
+
+# JUPYTER NOTEBOOK AND LAB
+# ========================
+#jupyter 
+#notebook
+##nb_conda_kernels
+
+#jupyterlab
+
+# For interacting with plotly dash
+# this is outdated do not use on modern versions of JupyterLab 
+# So do not use !
+#jupyter-dash

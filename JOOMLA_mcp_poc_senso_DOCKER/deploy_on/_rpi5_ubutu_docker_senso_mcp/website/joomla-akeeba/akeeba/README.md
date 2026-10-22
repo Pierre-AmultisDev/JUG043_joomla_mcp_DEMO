@@ -1,0 +1,1 @@
+Plaats in deze map het .jpa bestand waarin de Akeeba backup van de live website staat. [Meer informatie over Akeeba Backup](https://www.akeeba.com/products/akeeba-backup.html)

@@ -1,0 +1,48 @@
+# =============================================================================
+#
+# @package    <<PROJECT>>
+#             for <<CUSTOMER>> on local venv
+# 
+# @version    v0.0.7  2025-09-19
+# @author     pierre@amultis.dev
+# @copyright  (C) 2022-2025 Pierre Veelen
+#
+# @python     3.11.9
+#
+# =============================================================================
+
+# LOADING SETTINGS
+# =======================================
+#  PyYAML
+
+# WEB DATA
+# =======================================
+#urllib3==1.26.15
+#certifi
+
+# GENERIC DATA WRANGLING
+# =====================================
+#pandas==2.0.1
+
+# GEO DATA WRANGLING
+# =====================================
+#shapely==2.0.1
+
+# DATA VISUALISATION WITH PLOTLY
+# =======================================
+#plotly==5.14.1
+#dash==2.9.3
+#dash-bootstrap-components==1.4.1
+#dash-daq==0.5.0
+
+# basic authentication
+##dash-auth==1.4.1
+# is work in progress. Using local dash_auth_personal
+# import these specific for authentication
+#requests==2.28.1
+#ua_parser==0.16.1
+#chart_studio==1.1.0
+
+# RENDER SPECIFIC 
+# =======================================
+#gunicorn==20.1.0

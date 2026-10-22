@@ -1,0 +1,14 @@
+# Deze service heeft momenteel geen "build:"-sectie (gebruikt rechtstreeks
+# de officiele joomla-image met een inline entrypoint in docker-compose.yml),
+# dus deze .dockerignore wordt op dit moment nergens door Docker gelezen.
+# Toegevoegd voor consistentie met de andere containermappen en als
+# voorbereiding op het geval hier ooit een eigen Dockerfile bijkomt.
+#
+# Sowieso nooit in een image-laag: de (mogelijk grote) Akeeba-backup en de
+# volledige Joomla-sitekopie.
+
+akeeba/*.jpa
+akeeba/kickstart.php
+joomla-www/
+*.log
+.env

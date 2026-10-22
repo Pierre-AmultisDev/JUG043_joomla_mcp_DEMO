@@ -1,0 +1,30 @@
+# =============================================================================
+#
+# @package    <<PROJECT>>
+#             for <<CUSTOMER>> on local venv
+# 
+# @version    v0.0.2  2026-05-04
+# @author     pierre@amultis.dev
+# @copyright  (C) 2022-2025 Pierre Veelen
+#
+# @python     3.13.7
+#
+# =============================================================================
+
+# FAST NUMERICAL ARRAY PROCESSING
+# =====================================
+#numpy
+
+# GENERIC DATA WRANGLING
+# =====================================
+#pandas
+
+# some basic excel styling output 
+#  openpyxl
+
+# better excel output for graphs 
+#  xlsxwriter
+
+# HIGH-PERFORMANCE DATA PROCESSING AND ANALYTICS
+# =====================================
+pyarrow

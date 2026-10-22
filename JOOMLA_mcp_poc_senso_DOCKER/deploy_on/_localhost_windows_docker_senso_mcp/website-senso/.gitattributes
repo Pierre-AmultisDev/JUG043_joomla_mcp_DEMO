@@ -1,0 +1,17 @@
+# =============================================================================
+#
+# @package    aMultis DEV 
+# @container  
+# @name       .gitattibutes
+# @purpose    Set behavior for line endings
+# @version    v0.0.2  2026-10-21
+# @author     pierre@amultis.dev
+# @copyright  (C) Pierre Veelen
+#
+# =============================================================================
+
+# Set default behavior to automatically normalize line endings.
+* text=auto encoding=UTF-8
+*.sh  text eol=lf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf

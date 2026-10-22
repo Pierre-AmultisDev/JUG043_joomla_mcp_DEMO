@@ -1,0 +1,120 @@
+# Joomla MCP POC — 3 containers: database, webserver (Joomla-kopie) en MCP-server.
+#
+# Start deze stack altijd met --env-file, óók als je niet een van de
+# compose_scripts/*.sh gebruikt (die geven dit al correct door):
+#
+#   docker compose --env-file ./env/.env up -d --build
+#
+
+services:
+# =================
+  mariadb:
+# =================
+    # Database gepint op het stabiele LTS-kanaal 
+    image: mariadb:10.11
+    container_name: joomla-mariadb-onepoint
+    restart: unless-stopped
+    # env_file volstaat hier: de variabelenamen in env/.env (MYSQL_ROOT_PASSWORD,
+    # MYSQL_DATABASE, MYSQL_USER, MYSQL_PASSWORD) komen exact overeen met wat
+    # de mariadb-image verwacht. Zet ze NIET nogmaals in een environment:-blok
+    # met ${...} -- als dat ooit onopgelost blijft (bv. gestart zonder
+    # --env-file) wordt de waarde een lege string en overschrijft die
+    # stilzwijgend wat env_file net goed had gezet.
+    env_file:
+      - path: ./env/.env
+    environment:
+      # Set Timezone
+      - TZ=Europe/Amsterdam
+    volumes:
+      # folder on host os : folder in container
+      - mariadb_data:/var/lib/mysql
+      # Scripts hier draaien automatisch bij de EERSTE start (leeg data-volume):
+      # 01 maakt de read-only 'mcp_reader'-gebruiker aan, 02 importeert je
+      # eigen Joomla-dump (zie README).
+      - ./mariadb/init:/docker-entrypoint-initdb.d:ro
+    networks:
+      - mcp-onepoint-net
+
+# =================
+  joomla-akeeba:
+# =================
+    image: joomla:6-apache
+    container_name: joomla-webserver-onepoint
+    restart: unless-stopped
+    depends_on:
+      - mariadb
+    ports:
+      # port on host os : port in container
+      - 9380:80
+    env_file:
+      - path: ./env/.env
+    entrypoint:
+      - /bin/bash
+      - -c
+      - |
+        echo "[Setup] Controleren op Akeeba Kickstart bestanden in /tmp/host-config..."
+
+        # 1. kickstart.php kopiëren als deze bestaat
+        if [ -f /tmp/host-config/kickstart.php ]; then
+          cp /tmp/host-config/kickstart.php /var/www/html/
+          echo "[Setup] kickstart.php succesvol gekopieerd."
+        else
+          echo "[⚠️ Waarschuwing] kickstart.php niet gevonden in ./akeeba/"
+        fi
+
+        # 2. Alle .jpa bestanden kopiëren (met dubbele $$ voor Docker Compose)
+        shopt -s nullglob
+        for f in /tmp/host-config/*.jpa; do
+          cp "$$f" /var/www/html/
+          echo "[Setup] Backup-bestand $$(basename "$$f") gekopieerd."
+        done
+
+        # 3. Automatisch het unieke kickstart.json.php bestand aanmaken met je DB wachtwoord
+        echo -e "<?php die(); ?>\n{\"password\":\"${MYSQL_PASSWORD}\"}" > /var/www/html/kickstart.json.php
+        echo "[Setup] kickstart.json.php succesvol gegenereerd."
+
+        # 4. CRUCIAAL: Zet de rechten direct goed naar de Apache-gebruiker (www-data)
+        echo "[Setup] Rechten overdragen aan www-data..."
+        chown -R www-data:www-data /var/www/html
+
+        # 5. Start de originele Joomla opstartprocedure via het omgevingspad
+        exec docker-php-entrypoint apache2-foreground
+
+    environment:
+      # Set Timezone
+      - TZ=Europe/Amsterdam
+      # Deze moeten wél expliciet: Joomla verwacht andere variabelenamen
+      # (JOOMLA_DB_*) dan wat in .env staat (MYSQL_*).
+      - JOOMLA_DB_HOST=mariadb
+      - JOOMLA_DB_NAME=${MYSQL_DATABASE}
+      - JOOMLA_DB_USER=${MYSQL_USER}
+      - JOOMLA_DB_PASSWORD=${MYSQL_PASSWORD}
+      - JOOMLA_SITE_NAME=JUG043 MCP PoC
+      - JOOMLA_ADMIN_USER=JUG043 Site Admin
+      - JOOMLA_ADMIN_USERNAME=jugsiteadmin
+      - JOOMLA_ADMIN_EMAIL=jug043.siteadmin@pvln.nl
+
+    volumes:
+      # folder on host os : folder in container
+      # Bind mount i.p.v. named volume: zo kun je de bestanden van je Joomla-kopie er gewoon in kopieren (zie README).
+      # 
+      # LET OP: 
+      # Zorg ervoor dat de lokale map ./joomla-www volledig leeg is voordat je de stack voor het eerst bouwt,
+      # zodat Joomla 6 clean kan worden uitgepakt.
+      # Wanneer deze container voor het eerst start, kijkt hij of /var/www/html leeg is. 
+      # Als die map leeg is, kopieert de container de Joomla 6-bronbestanden naar die map.
+      - ./joomla-www:/var/www/html
+      # Koppelt de submap ./akeeba/ direct aan de tijdelijke map in de container om via akeeba te kunnen restoren
+      - ./joomla-akeeba/akeeba:/tmp/host-config:ro
+    networks:
+      - mcp-onepoint-net
+
+# gedeeld netwerk tussen 2 omgevingen altijd via external 
+# LET OP; `docker network create external-mcp-onepoint-net` voor docker compose uitvoeren
+networks:
+  mcp-onepoint-net:
+    external: true
+    name: external-mcp-onepoint-net
+
+volumes:
+  mariadb_data:

@@ -1,0 +1,28 @@
+# =============================================================================
+#
+# @package    <<PROJECT>>
+#             for <<CUSTOMER>> on local venv
+# 
+# @version    v0.0.3  2026-05-04
+# @author     pierre@amultis.dev
+# @copyright  (C) 2022-2025 Pierre Veelen
+#
+# @python     
+#
+# =============================================================================
+
+# DATA VISUALISATION WITH SEABORN
+# =======================================
+#seaborn
+#matplotlib
+
+# PyQt6 only needed when building stand-alone desktop GUI-app.
+# PyQt6
+
+# OUTPUT COLORING
+# =======================================
+#colorama
+
+# PROGRESS BARS FOR LOOPS AND ITERABLES
+# =======================================
+#tqdm

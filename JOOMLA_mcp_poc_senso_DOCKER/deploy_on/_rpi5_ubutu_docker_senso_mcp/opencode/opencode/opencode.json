@@ -1,0 +1,14 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "opencode/deepseek-v4-flash-free",
+  "mcp": {
+    "joomla": {
+      "type": "remote",
+      "url": "http://joomla-webserver-senso:80/api/index.php/v1/mcp",
+      "enabled": true,
+      "headers": {
+        "Authorization": "Bearer c2hhMjU2OjM5NTozNDk0YmQ5ZDI0NGZlZjg1ZWIxYWY1M2JkMWI2NzkzMTQ0NjkwNjQxNmYxZGNjMmU5N2Q4MTlhNzIzY2YzYmYx"
+      }
+    }
+  }
+}

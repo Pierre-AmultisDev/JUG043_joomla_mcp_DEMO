@@ -1,0 +1,24 @@
+# =============================================================================
+#
+# @package    <<PROJECT>>
+#             for <<CUSTOMER>> on local venv
+# 
+# @version    v0.0.3  2026-06-28
+# @author     pierre@amultis.dev
+# @copyright  (C) 2022-2025 Pierre Veelen
+#
+# @python     3.13.7
+#
+# =============================================================================
+
+# LOADING SETTINGS
+# =======================================
+#PyYAML==6.0.2
+
+# LOADING ENVIRONMENT
+# =======================================
+#python-dotenv
+
+# LOADING DATE AND TIME
+# =======================================
+#python-dateutil

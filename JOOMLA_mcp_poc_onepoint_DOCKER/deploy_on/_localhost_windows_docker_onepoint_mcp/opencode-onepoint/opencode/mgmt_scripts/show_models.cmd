@@ -1,0 +1,1 @@
+docker exec opencode-ui-onepoint opencode models

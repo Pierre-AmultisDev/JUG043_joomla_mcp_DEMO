@@ -1,0 +1,11 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "opencode/deepseek-v4.1-flash-free",
+  "mcp": {
+    "joomla": {
+      "type": "remote",
+      "url": "http://mcp-server-segmented:8000/mcp",
+      "enabled": true
+    }
+  }
+}

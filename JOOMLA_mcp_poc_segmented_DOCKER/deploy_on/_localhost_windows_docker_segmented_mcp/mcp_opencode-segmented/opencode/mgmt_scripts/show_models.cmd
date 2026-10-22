@@ -1,0 +1,1 @@
+docker exec opencode-ui-segmented opencode models

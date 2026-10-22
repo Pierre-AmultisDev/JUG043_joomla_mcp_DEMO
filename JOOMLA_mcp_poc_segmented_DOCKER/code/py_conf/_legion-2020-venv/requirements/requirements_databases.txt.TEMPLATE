@@ -1,0 +1,19 @@
+# =============================================================================
+#
+# @package    <<PROJECT>>
+#             for <<CUSTOMER>> on local venv
+# 
+# @version    v0.0.2  2025-09-24
+# @author     pierre@amultis.dev
+# @copyright  (C) Pierre Veelen
+#
+# @python     3.13.7
+#
+# =============================================================================
+
+# MYSQL database
+#mysql-connector-python
+
+# Postgres SQL database
+#psycopg
+

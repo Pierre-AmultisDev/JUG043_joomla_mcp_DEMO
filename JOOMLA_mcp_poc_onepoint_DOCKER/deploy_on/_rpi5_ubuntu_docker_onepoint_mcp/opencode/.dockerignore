@@ -1,0 +1,22 @@
+# Dit is de EFFECTIEVE .dockerignore voor de mcp-server-build: de build-
+# context van die service staat in docker-compose.yml op "." (deze map),
+# en Docker leest .dockerignore altijd uit de root van de build-context —
+# NOOIT uit de map van de Dockerfile zelf. De .dockerignore-bestanden in
+# mariadb/, joomla-akeeba/ en mcp-server/ zijn dus (momenteel) niet actief;
+# zie de toelichting daarin.
+#
+# Doel hier: voorkom dat grote/gevoelige bestanden (Joomla-kopie, SQL-dumps,
+# Akeeba-backups, .env) worden ingepakt en naar de Docker-daemon gestuurd
+# bij elke build, ook al gebruikt de Dockerfile ze toch niet.
+
+joomla-www/
+mariadb/init/*.sql
+joomla-akeeba/akeeba/*.jpa
+joomla-akeeba/akeeba/kickstart.php
+env/
+*.log
+docker_build_*.log
+.git/
+__pycache__/
+*.pyc
+opencode/data/

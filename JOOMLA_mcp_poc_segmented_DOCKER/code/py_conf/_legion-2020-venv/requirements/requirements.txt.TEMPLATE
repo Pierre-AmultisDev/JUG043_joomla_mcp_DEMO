@@ -1,0 +1,25 @@
+# =============================================================================
+#
+# @package    <<PROJECT>>
+#             for <<CUSTOMER>> on local venv
+# 
+# @version    v0.0.4  2026-05-27
+# @author     pierre@amultis.dev
+# @copyright  (C) 2022-2025 Pierre Veelen
+#
+# @python     3.13.7
+#
+# =============================================================================
+#-r requirements_py3.13.7_baseline.txt
+#-r requirements_py3.13.7_webdata.txt
+#-r requirements_py3.13.7_generic_wrangling.txt
+#-r requirements_py3.13.7_geo_wrangling.txt
+#-r requirements_py3.13.7_plotlydash.txt
+#-r requirements_py3.13.7_render.txt
+#-r requirements_aws.txt
+#-r requirements_jupyter.txt
+#-r requirements_learning.txt
+#-r requirements_visualistions.txt
+#-r requirements_agents.txt
+#-r requirements_connectivity.txt
+#-r requirements_microsoft.txt

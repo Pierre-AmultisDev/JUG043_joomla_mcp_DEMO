@@ -1,0 +1,86 @@
+# Joomla MCP POC — 3 containers: database, webserver (Joomla-kopie) en MCP-server.
+#
+# Start deze stack altijd met --env-file, óók als je niet een van de
+# compose_scripts/*.sh gebruikt (die geven dit al correct door):
+#
+#   docker compose --env-file ./env/.env up -d --build
+#
+
+services:
+# =================
+  mcp-server-segmented:
+# =================
+    build:
+      context: .
+      dockerfile: ./mcp-server/Dockerfile
+    container_name: joomla-mcp-server-segmented
+    restart: unless-stopped
+    env_file:
+      # relative to this docker-compose file
+      - path: ../env/.env
+    environment:
+      # Set Timezone
+      - TZ=Europe/Amsterdam
+      # Ook hier: alleen variabelen die een andere naam krijgen (DB_NAME,
+      # DB_PASSWORD) of een fallback-default nodig hebben (:-db, :-)
+      # staan hier expliciet. Wat 1-op-1 dezelfde naam heeft als in .env
+      # komt al binnen via env_file hierboven.
+      - DATA_BACKEND=${DATA_BACKEND:-db}
+      - DB_HOST=mariadb
+      - DB_PORT=3306
+      - DB_NAME=${MYSQL_DATABASE}
+      - DB_USER=mcp_reader
+      - DB_TABLE_PREFIX=${DB_TABLE_PREFIX:-jos_}
+      - DB_PASSWORD=${MCP_READER_PASSWORD}
+      # Alleen relevant wanneer DATA_BACKEND=api:
+      - JOOMLA_API_BASE_URL=${JOOMLA_API_BASE_URL:-}
+      - JOOMLA_API_TOKEN=${JOOMLA_API_TOKEN:-}
+    ports:
+      # port on host os : port in container
+      - 9100:8000
+    networks:
+      - mcp-segmented-net
+
+# =================
+  opencode-segmented:
+# =================
+    image: ghcr.io/anomalyco/opencode:latest
+    container_name: opencode-ui-segmented
+    restart: unless-stopped
+    depends_on:
+      - mcp-server-segmented
+    environment:
+      # OpenCode Zen (standaard, zie opencode/opencode.json). Zonder key
+      # zijn alleen de gratis Zen-modellen beschikbaar.
+      - OPENCODE_API_KEY=${OPENCODE_API_KEY:-}
+      # Optioneel alternatief: Groq (gratis tier)
+      - GROQ_API_KEY=${GROQ_API_KEY:-}
+      # Zet ANTHROPIC_API_KEY in .env en pas opencode/opencode.json aan
+      # om in plaats van het gratis model Claude te laten zien.
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
+      # Laat OpenCode zijn data in de gemounte map (/data) bewaren.
+      - XDG_DATA_HOME=/data/share
+      - XDG_STATE_HOME=/data/state
+      # Laad de MCP-config altijd, ongeacht welke projectmap je in de UI kiest.
+      - OPENCODE_CONFIG=/workspace/opencode.json
+    volumes:
+      - ./opencode/opencode.json:/workspace/opencode.json:ro
+      - ./opencode/workspace:/workspace/project
+      # Persistente OpenCode-data (sessiegeschiedenis, projecten, auth):
+      # overleeft rebuilds en 'docker compose down'.
+      - ./opencode/data:/data
+    working_dir: /workspace
+    command: ["web", "--hostname", "0.0.0.0", "--port", "4096"]
+    ports:
+      - "4196:4096"
+    networks:
+      - mcp-segmented-net
+
+# gedeeld netwerk tussen 2 omgevingen altijd via external 
+# LET OP; `docker network create external-mcp-onepoint-net` voor docker compose uitvoeren
+networks:
+  mcp-segmented-net:
+    external: true
+    name: external-mcp-segmented-net
+
+

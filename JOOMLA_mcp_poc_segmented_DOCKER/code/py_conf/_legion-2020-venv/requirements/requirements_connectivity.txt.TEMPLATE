@@ -1,0 +1,21 @@
+# =============================================================================
+#
+# @package    <<PROJECT>>
+#             for <<CUSTOMER>> on local venv
+# 
+# @version    v0.0.3  2026-05-14
+# @author     pierre@amultis.dev
+# @copyright  (C) Pierre Veelen
+#
+# @python     3.13.7
+#
+# =============================================================================
+
+# MQTT
+#paho-mqtt
+
+# Serial
+#pyserial
+
+# DNS
+#dnspython

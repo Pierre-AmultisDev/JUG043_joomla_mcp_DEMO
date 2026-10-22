@@ -1,0 +1,11 @@
+-- Vervang dit bestand volledig door de SQL-dump van je Joomla-kopie.
+-- Het wordt automatisch geimporteerd bij de EERSTE start van de
+-- mariadb-container (alleen wanneer het data-volume nog leeg is).
+--
+-- Voorbeeld:
+--   cp /pad/naar/jouw-export.sql ./init/02-joomla-dump.sql
+--
+-- Als je dit toevoegt NADAT de stack al eerder gestart is, moet je met een
+-- schoon volume opnieuw starten, anders wordt dit bestand overgeslagen:
+--   docker compose down -v
+--   docker compose up -d
