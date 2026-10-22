@@ -66,10 +66,11 @@ Voorwaarde: `joomla-www/` is leeg, en `joomla-akeeba/akeeba/` bevat `kickstart.p
    | Databasenaam | `joomla` |
 
 3. Stel bij **Site Parameters** / **Server-specific configuration files** in
-   (zie ![Alternatieve tekst](assets/img/akeeba_instellingen.png) in elke POC-map):
    - **Force SSL: None**
    - **Generate a new secret: uit**
    - **.htaccess Handling: Use default**
+   (zie ![Alternatieve tekst](assets/img/akeeba_instellingen.png) in elke POC-map):
+
 4. Rond de restore af en verwijder daarna (zoals Akeeba vraagt) de `installation`-map.
 5. Front-end: `http://<host>:<webpoort>/` · Back-end: `http://<host>:<webpoort>/administrator/`
 
