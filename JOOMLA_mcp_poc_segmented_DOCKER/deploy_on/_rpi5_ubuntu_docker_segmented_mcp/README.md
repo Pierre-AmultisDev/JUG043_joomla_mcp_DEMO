@@ -62,7 +62,8 @@ chmod +x *.sh
 
 ## Dagelijks gebruik
 
-In beide mappen op de Pi: `./start_all_containers.sh` en `./stop_all_containers.sh`. Eerst de website-stack starten, als laatste stoppen.
-`./update_all_apps_in_containers.sh` ververst de images (let op de `image prune -af`, zie root-README §4).
+In beide mappen op de Pi:
+- `./start_all_containers.sh` en `./stop_all_containers.sh`. Eerst de website-stack starten, als laatste stoppen.
+- `./update_all_apps_in_containers.sh` ververst de images (let op de `image prune -af`, zie root-README §4).
 
-**Niet opnieuw `rebuild_…` draaien na een geslaagde restore** tenzij je de site opnieuw wilt restoren: het wist `joomla-www`, terwijl de database in het volume blijft staan.
+**Niet opnieuw `rebuild_and_start_all_containers.sh` draaien na een geslaagde restore** tenzij je de site opnieuw wilt restoren: het wist `joomla-www`, terwijl de database in het volume blijft staan. De database wordt bij een rebuild overschreven via kickstart.php.
