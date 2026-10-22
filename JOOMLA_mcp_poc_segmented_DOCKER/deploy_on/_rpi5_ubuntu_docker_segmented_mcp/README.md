@@ -40,8 +40,8 @@ Het script vraagt om `sudo` (het wist `./joomla-www`) en maakt het netwerk aan. 
 ## Stap 2 – site restoren
 
 - `http://rpi5-ub2404-001-wire:9180/kickstart.php` → instellingen volgens de root-README (§3).
-- Front-end `http://rpi5-ub2404-001-wire:9180/`,
-- Back-end `…/administrator/`.
+- Front-end: `http://rpi5-ub2404-001-wire:9180/`,
+- Back-end: `http://rpi5-ub2404-001-wire:9180/administrator/`.
 
 ## Stap 3 – opencode-stack kopiëren en starten
 
