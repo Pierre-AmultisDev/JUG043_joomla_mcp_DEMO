@@ -35,7 +35,7 @@ if docker compose --env-file "$ENV_FILE" config --quiet; then
   echo "Opruimen van '$ExternalNetworkName' proberen..."
   docker network rm "$ExternalNetworkName"
 
-  echo "Klaar. De stack is volledig verwijderd."																							   
+  echo "Klaar. De stack is volledig verwijderd."
 
 else
   echo "Docker compose config file validation failed. Did nothing further"

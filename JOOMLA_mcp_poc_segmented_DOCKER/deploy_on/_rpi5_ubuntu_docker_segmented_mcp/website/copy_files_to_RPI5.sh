@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-RPI5_BASEPATH="ubuntu@RPi5-UB2404-001-WIRE:/home/ubuntu/docker/JOOMLA_mcp_poc_segmented_web_DOCKER"
+RPI5_BASEPATH="ubuntu@RPi5-UB2404-001-WIRE:/home/ubuntu/docker/JOOMLA_mcp_poc_segm_web_DOCKER"
 CONF_BASEPATH="../../../code"
 ENV_BASEPATH="../env"
 

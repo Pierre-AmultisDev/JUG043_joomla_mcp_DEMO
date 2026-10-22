@@ -13,7 +13,7 @@ rsync -avz ./docker-compose.yml "$RPI5_BASEPATH/"
 echo "[INFO   ] Copy docker compose script files and docker containers"
 rsync -avz ./compose_scripts/*.sh "$RPI5_BASEPATH/"
 
-echo "[INFO   ] Copy docker container(s)"
+#echo "[INFO   ] Copy docker container(s)"
 #rsync -avz ./mcp-server/* "$RPI5_BASEPATH/mcp-server/"
 #rsync -avz ./mariadb/* "$RPI5_BASEPATH/mariadb/"
 
