@@ -3,7 +3,7 @@
 Drie proof-of-concepts die laten zien hoe een AI-chat (OpenCode) via MCP met een
 Joomla-kopie (Akeeba-restore) kan praten. Elke POC bestaat uit **2 compose-stacks**
 (een *website*-stack en een *opencode*-stack) en heeft een variant voor de **laptop**
-(Windows + Docker) en voor de **Raspberry Pi 5**.
+(Windows + Docker) en voor de **Raspberry Pi 5** (Ubuntu + Docker).
 
 | POC | Map | Hoe praat OpenCode met Joomla? | Web | OpenCode | MCP-server |
 |---|---|---|---|---|---|
