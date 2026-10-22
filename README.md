@@ -5,6 +5,8 @@ Joomla-kopie (Akeeba-restore) kan praten. Elke POC bestaat uit **2 compose-stack
 (een *website*-stack en een *opencode*-stack) en heeft een variant voor de **laptop**
 (Windows + Docker) en voor de **Raspberry Pi 5** (Ubuntu + Docker).
 
+[De presentatie staat hier](assets/pdf/20261017_Joomla_MCP_opties_JUG043_v1.pdf)
+
 | POC | Map | Hoe praat OpenCode met Joomla? | Web | OpenCode | MCP-server |
 |---|---|---|---|---|---|
 | segmented | `JOOMLA_mcp_poc_segmented_DOCKER` | via een eigen Python MCP-server die de DB leest | 9180 | 4196 | 9100 |
