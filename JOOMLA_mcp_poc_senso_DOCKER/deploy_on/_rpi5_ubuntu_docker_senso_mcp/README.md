@@ -43,8 +43,14 @@ Het script vraagt om `sudo` (het wist `./joomla-www`) en maakt het netwerk aan. 
 `http://rpi5-ub2404-001-wire:9280/kickstart.php` → instellingen volgens de root-README (§3).
 Front-end `http://rpi5-ub2404-001-wire:9280/`, back-end `…/administrator/`.
 
-## Stap 3 – opencode-stack kopiëren en starten
-
+## Stap 3 – Senso MCP extensie installeren
+Omdat dit een test is, is het uitgangspunt dat de Senso MCP extensie nog niet geïnstalleerd is. 
+Is die extensie wel al geïnstalleerd dan kun je deze stap overslaan.
+Installeer daarom eerst de Senso MCP extensie. Deze is te vinden:
+- Via de [Joomla Extension Directory -> Senso MCP](https://extensions.joomla.org/extension/senso-mcp/)
+- Of bij [Senso zelf](https://www.sensomcp.com/en/downloads/senso-mcp-pack-free). Ik heb de gratis versie gebruikt.
+   
+## Stap 4 – opencode-stack starten
 ```bash
 # Windows/WSL
 cd ../opencode
