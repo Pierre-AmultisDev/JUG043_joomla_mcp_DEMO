@@ -42,7 +42,14 @@ Het script verwijdert `joomla-www` op de laptop **niet** betrouwbaar (het zoekt 
 `http://localhost:9280/kickstart.php` → instellingen volgens de root-README (§3).
 Daarna: front-end `http://localhost:9280/`, back-end `http://localhost:9280/administrator/`.
 
-## Stap 3 – opencode-stack starten
+## Stap 3 – Senso MCP extensie installeren
+Omdat dit een test is, is het uitgangspunt dat de Senso MCP extensie nog niet geïnstalleerd is. 
+Is die extensie wel al geïnstalleerd dan kun je deze stap overslaan.
+Installeer daarom eerst de Senso MCP extensie. Deze is te vinden:
+- Via de [Joomla Extension Directory -> Senso MCP](https://extensions.joomla.org/extension/senso-mcp/)
+- Of bij [Senso zelf](https://www.sensomcp.com/en/downloads/senso-mcp-pack-free). Ik heb de gratis versie gebruikt.
+   
+## Stap 4 – opencode-stack starten
 
 ```bat
 cd ..\..\opencode-senso\compose_scripts
