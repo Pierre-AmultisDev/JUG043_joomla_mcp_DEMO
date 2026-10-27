@@ -1,10 +1,9 @@
 # JUG043 Joomla MCP demo – 3 POC-omgevingen in Docker
-
-Drie proof-of-concepts die laten zien hoe een AI-chat (OpenCode) via MCP met een Joomla website (via Akeeba-restore) kan praten. 
+Tijdens de Pizza Jug & Fun dag van zaterdag 17 oktober 2026 van [JUG043](https://jug043.nl/) heb ik 3 proof-of-concepts laten zien waarin werd getoond hoe een AI-chat (OpenCode) via MCP met een Joomla website (via Akeeba-restore) kan praten. 
 Elke POC bestaat uit **2 compose-stacks** (een *website*-stack en een *opencode*-stack)
 Er is een variant voor de **laptop** (Windows + Docker) en een variant voor de **Raspberry Pi 5** (Ubuntu + Docker).
 
-[De presentatie staat hier](assets/pdf/20261017_Joomla_MCP_opties_JUG043_v1.pdf)
+## [De presentatie van die dag staat hier](assets/pdf/20261017_Joomla_MCP_opties_JUG043_v1.pdf)
 
 | POC | Map | Hoe praat OpenCode met Joomla? | Web | OpenCode | MCP-server |
 |---|---|---|---|---|---|
