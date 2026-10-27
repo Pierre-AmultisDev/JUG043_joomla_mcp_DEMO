@@ -48,7 +48,7 @@ Omdat dit een test is, is het uitgangspunt dat de Senso MCP extensie nog niet ge
 Is die extensie wel al geïnstalleerd dan kun je deze stap overslaan.
 Installeer daarom eerst de Senso MCP extensie. Deze is te vinden:
 - Via de [Joomla Extension Directory -> Senso MCP](https://extensions.joomla.org/extension/senso-mcp/)
-- Of bij [Senso zelf](https://www.sensomcp.com/en/downloads/senso-mcp-pack-free). Ik heb de gratis versie gebruikt.
+- Of bij [Senso zelf](https://www.sensomcp.com/en/downloads/senso-mcp-pack-free). Ik heb versie pkg_sensomcp_1.2.13.zip gebruikt, maar gebruik vooral de laatste versie.
    
 ## Stap 4 – opencode-stack starten
 ```bash
