@@ -88,7 +88,7 @@ Krijg je toch een HTTP 500: hernoem `joomla-www/.htaccess` naar `.htaccess.bak`.
 | `start_all_containers.*` | Valideert de compose-config en doet `up --build --detach`. Dagelijks gebruik. |
 | `stop_all_containers.*` | `docker compose down` (volumes blijven behouden). |
 | `update_all_apps_in_containers.*` | `pull` + `build --no-cache --pull` + `up` en daarna **`docker image prune -af`**: dat ruimt álle ongebruikte images op de hele Docker-host op, niet alleen die van dit project. |
-| `cleanup_compose_stack.*` | Script om de compose stack te stopen en de containers in dockercompose.yml te verwijderen en alles wat daaraan gekoppeld is. |
+| `cleanup_compose_stack.*` | Script om de compose stack te stoppen en de containers in dockercompose.yml te verwijderen en alles wat daaraan gekoppeld is. |
 
 - Op de Laptop: `.cmd` (roept de `.ps1` aan). 
 - Op de Raspberry Pi: `.sh`. 
