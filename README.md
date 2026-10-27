@@ -99,7 +99,12 @@ Laptop: `.cmd` (roept de `.ps1` aan). Pi: `.sh`. Alle scripts schrijven een
   `docker compose --env-file <pad-naar>/.env down -v` (`-v` verwijdert het `mariadb_data`-volume, zodat ook de `init/`-scripts opnieuw draaien).
 - OpenCode-geschiedenis wissen: inhoud van `opencode/data/` verwijderen (behalve `.gitkeep`) terwijl de container uit staat.
 
-## 6. Gebruikersgegevens anonimiseren (optioneel, vóór een demo)
+Als je wel de gegevens wil behouden, kies dan voor het `rebuild_and_start_all_containers` script.
+
+## 6. Opschonen
+Als je een bepaalde stack wil opschonen, gebruik dan het `cleanup_compose_stack` script. Dat ruimt alle container van een stack op.
+
+## 7. Gebruikersgegevens anonimiseren (optioneel, vóór een demo)
 
 `mariadb/mgmt_scripts/anonymize_members.sh` (bash, onomkeerbaar op de kopie; Super Users blijven ongemoeid).
 Standaard zoekt het de container `joomla-mariadb-segmented`; voor de andere POC's:
@@ -107,7 +112,7 @@ Standaard zoekt het de container `joomla-mariadb-segmented`; voor de andere POC'
 Eerst `--report` draaien. Het script zoekt `.env` op `../../env/.env` (ten opzichte van het script); dat klopt op de Pi,
 op de laptop geef je `ENV_FILE=<pad naar env/.env>` mee.
 
-## 7. Bekende valkuilen/aandachtspunten
+## 8. Bekende valkuilen/aandachtspunten
 
 - OpenCode (poorten 4196/4296/4396) heeft geen wachtwoord; wie op je netwerk zit kan erbij.
 - Chatvragen en tool-resultaten gaan naar de cloud-modelprovider. Anonimiseer de data eerst!
