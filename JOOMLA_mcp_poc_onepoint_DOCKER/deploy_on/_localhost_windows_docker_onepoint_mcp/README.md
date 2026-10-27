@@ -1,5 +1,9 @@
 # onepoint – laptop (Windows + Docker)
 
+## LET OP:
+De snelheid van de website en OpenCode is behoorlijk traag. Dit komt door de combinatie van Windows en WSL die "onder water" gebruikt wordt.
+Een variant rechtstreeks op WSL (vergelijkbaar met de Raspberry Pi) zou veel snelle moeten zijn.  
+
 Map: `deploy_on/_legion-2020_docker_onepoint_mcp/`
 
 ```
