@@ -43,8 +43,14 @@ Het script vraagt om `sudo` (het wist `./joomla-www`) en maakt het netwerk aan. 
 `http://rpi5-ub2404-001-wire:9380/kickstart.php` → instellingen volgens de root-README (§3).
 Front-end `http://rpi5-ub2404-001-wire:9380/`, back-end `…/administrator/`.
 
-## Stap 3 – opencode-stack kopiëren en starten
-
+## Stap 3 – Onepoint MCP extensie installeren
+Omdat dit een test is, is het uitgangspunt dat de Onepoint MCP extensie nog niet geïnstalleerd is. 
+Is die extensie wel al geïnstalleerd dan kun je deze stap overslaan.
+Installeer daarom eerst de Onepoint MCP extensie. Deze is te vinden:
+- Via de [Joomla Extension Directory -> Onepoint MCP](https://extensions.joomla.org/extension/mcp-server-for-joomla/)
+- Of bij [Onepoint zelf](https://github.com/OnepointConsultingLtd/joomla-mcp-server/releases)). Ik heb versie com_mcpserver-1.10.1.zip gebruikt, maar gebruik vooral de laatste versie.
+   
+## Stap 4 – opencode-stack starten
 ```bash
 # Windows/WSL
 cd ../opencode
