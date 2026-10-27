@@ -42,8 +42,14 @@ Het script verwijdert `joomla-www` op de laptop **niet** betrouwbaar (het zoekt 
 `http://localhost:9380/kickstart.php` → instellingen volgens de root-README (§3).
 Daarna: front-end `http://localhost:9380/`, back-end `http://localhost:9380/administrator/`.
 
-## Stap 3 – opencode-stack starten
-
+## Stap 3 – Onepoint MCP extensie installeren
+Omdat dit een test is, is het uitgangspunt dat de Onepoint MCP extensie nog niet geïnstalleerd is. 
+Is die extensie wel al geïnstalleerd dan kun je deze stap overslaan.
+Installeer daarom eerst de Onepoint MCP extensie. Deze is te vinden:
+- Via de [Joomla Extension Directory -> Onepoint MCP](https://extensions.joomla.org/extension/mcp-server-for-joomla/)
+- Of bij [Onepoint zelf](https://github.com/OnepointConsultingLtd/joomla-mcp-server/releases)). Ik heb versie com_mcpserver-1.10.1.zip gebruikt, maar gebruik vooral de laatste versie.
+   
+## Stap 4 – opencode-stack starten
 ```bat
 cd ..\..\opencode-onepoint\compose_scripts
 rebuild_and_start_all_containers.cmd
