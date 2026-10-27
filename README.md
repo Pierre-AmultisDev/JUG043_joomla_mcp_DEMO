@@ -1,7 +1,7 @@
 # JUG043 Joomla MCP demo – 3 POC-omgevingen in Docker
 
 Drie proof-of-concepts die laten zien hoe een AI-chat (OpenCode) via MCP met een
-Joomla-kopie (Akeeba-restore) kan praten. Elke POC bestaat uit **2 compose-stacks**
+Joomla website (via Akeeba-restore) kan praten. Elke POC bestaat uit **2 compose-stacks**
 (een *website*-stack en een *opencode*-stack) en heeft een variant voor de **laptop**
 (Windows + Docker) en voor de **Raspberry Pi 5** (Ubuntu + Docker).
 
@@ -9,7 +9,7 @@ Joomla-kopie (Akeeba-restore) kan praten. Elke POC bestaat uit **2 compose-stack
 
 | POC | Map | Hoe praat OpenCode met Joomla? | Web | OpenCode | MCP-server |
 |---|---|---|---|---|---|
-| segmented | `JOOMLA_mcp_poc_segmented_DOCKER` | via een eigen Python MCP-server die de DB leest | 9180 | 4196 | 9100 |
+| segmented | `JOOMLA_mcp_poc_segmented_DOCKER` | via een eigen Python MCP-server die vai de Joomla! websiet API leest | 9180 | 4196 | 9100 |
 | senso | `JOOMLA_mcp_poc_senso_DOCKER` | via de Joomla Web Services API (`/api/index.php/v1/mcp`) | 9280 | 4296 | – |
 | onepoint | `JOOMLA_mcp_poc_onepoint_DOCKER` | direct met een Joomla-component (`com_mcpserver`) | 9380 | 4396 | – |
 
@@ -54,7 +54,7 @@ Per variant staat in `env/` een `.env.example`. Kopieer die naar `env/.env`
 Voorwaarde: `joomla-www/` is leeg, en `joomla-akeeba/akeeba/` bevat `kickstart.php`
 + je `.jpa`. Bij het starten van de Joomla-container worden die naar
 `/var/www/html` gekopieerd en wordt `kickstart.json.php` aangemaakt met
-`MYSQL_PASSWORD`.
+`MYSQL_PASSWORD`. Daarna kun je kickstart.php starten en het `MYSQL_PASSWORD` invullen.
 
 1. Open `http://<host>:<webpoort>/kickstart.php` en laat Kickstart het archief uitpakken.
 2. Start de Akeeba-installer en vul de database in:
@@ -99,7 +99,7 @@ Laptop: `.cmd` (roept de `.ps1` aan). Pi: `.sh`. Alle scripts schrijven een
   `docker compose --env-file <pad-naar>/.env down -v` (`-v` verwijdert het `mariadb_data`-volume, zodat ook de `init/`-scripts opnieuw draaien).
 - OpenCode-geschiedenis wissen: inhoud van `opencode/data/` verwijderen (behalve `.gitkeep`) terwijl de container uit staat.
 
-## 6. Ledengegevens anonimiseren (optioneel, vóór een demo)
+## 6. Gebruikersgegevens anonimiseren (optioneel, vóór een demo)
 
 `mariadb/mgmt_scripts/anonymize_members.sh` (bash, onomkeerbaar op de kopie; Super Users blijven ongemoeid).
 Standaard zoekt het de container `joomla-mariadb-segmented`; voor de andere POC's:
@@ -107,7 +107,7 @@ Standaard zoekt het de container `joomla-mariadb-segmented`; voor de andere POC'
 Eerst `--report` draaien. Het script zoekt `.env` op `../../env/.env` (ten opzichte van het script); dat klopt op de Pi,
 op de laptop geef je `ENV_FILE=<pad naar env/.env>` mee.
 
-## 7. Bekende valkuilen
+## 7. Bekende valkuilen/aandachtspunten
 
 - OpenCode (poorten 4196/4296/4396) heeft geen wachtwoord; wie op je netwerk zit kan erbij.
 - Chatvragen en tool-resultaten gaan naar de cloud-modelprovider. Anonimiseer de data eerst!
