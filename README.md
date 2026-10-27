@@ -9,7 +9,7 @@ Joomla website (via Akeeba-restore) kan praten. Elke POC bestaat uit **2 compose
 
 | POC | Map | Hoe praat OpenCode met Joomla? | Web | OpenCode | MCP-server |
 |---|---|---|---|---|---|
-| segmented | `JOOMLA_mcp_poc_segmented_DOCKER` | via een eigen Python MCP-server die vai de Joomla! websiet API leest | 9180 | 4196 | 9100 |
+| segmented | `JOOMLA_mcp_poc_segmented_DOCKER` | via een eigen Python MCP-server die via de Joomla! website API leest | 9180 | 4196 | 9100 |
 | senso | `JOOMLA_mcp_poc_senso_DOCKER` | via de Joomla Web Services API (`/api/index.php/v1/mcp`) | 9280 | 4296 | – |
 | onepoint | `JOOMLA_mcp_poc_onepoint_DOCKER` | direct met een Joomla-component (`com_mcpserver`) | 9380 | 4396 | – |
 
